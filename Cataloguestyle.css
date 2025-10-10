@@ -101,7 +101,12 @@ h2{
 
 @media(max-width:768px) {
 	product-grid{
-		grid-template-columns:1fr;
+		grid-template-columns:repeat(2, 1fr);
+	}
+}
+@media(maxwidth:480px) {
+	product-grid {
+		grid-template-columns: 1fr; 
 	}
 }
 
@@ -118,4 +123,5 @@ h2{
 
 
   
+
 
