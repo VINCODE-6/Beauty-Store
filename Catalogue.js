@@ -16,22 +16,6 @@
     });
   });
 
-// --- Adjust WhatsApp button position when footer is in view ---
-
-// Listen for scroll events (runs code every time user scrolls)
-window.addEventListener("scroll", function() {
-  
-  // Select the WhatsApp image inside the .contact-btn div
-  const whatsappBtn = document.querySelector(".contact-btn img");
-  
-  // Select the footer element (make sure footer has id="footer")
-  const footer = document.getElementById("site-footer");
-  
-  // Get the distance between the top of the footer and the viewport
-  const footerTop = footer.getBoundingClientRect().top;
-  
-  // Get height of visible part of the window
-  const windowHeight = window.innerHeight;
 
   // If the footer is visible on the screen
   if (footerTop < windowHeight) {
@@ -43,35 +27,41 @@ window.addEventListener("scroll", function() {
   }
 });
 
-// --- Prevent WhatsApp button from overlapping the footer ---
+// --- Keep WhatsApp button floating above footer ---
 
 window.addEventListener("scroll", function() {
-  // Select the WhatsApp image button
+  // Select the WhatsApp image inside the contact button
   const whatsappBtn = document.querySelector(".contact-btn img");
-  
-  // Select the footer (must have id="footer" in HTML)
+
+  // Select the footer (make sure your HTML footer uses id="site-footer")
   const footer = document.getElementById("site-footer");
-  
-  // Distance from top of the footer to the top of the visible screen
+
+  // Get how far from the top of the viewport the footer currently is
   const footerTop = footer.getBoundingClientRect().top;
-  
-  // Height of the visible browser window
+
+  // Get the visible height of the browser window
   const windowHeight = window.innerHeight;
 
-  // If the footer is visible (starting to appear on screen)
+  // Default bottom position for the floating WhatsApp icon
+  const normalBottom = 40; 
+
+  // Distance between the bottom of the viewport and the top of the footer
+  const distanceFromFooter = windowHeight - footerTop;
+
+  // If the footer is visible (footerTop < windowHeight)
   if (footerTop < windowHeight) {
-    // Calculate how much of the footer is visible
-    const overlap = windowHeight - footerTop;
-    
-    // If overlap is small (footer just starting to appear)
-    // we move the button upward to stay just above the footer.
-    // Increase "+ 80" to create a bigger gap if you want.
-    whatsappBtn.style.bottom = `${overlap + 80}px`; 
+    // Calculate the new bottom position so the icon never touches the footer
+    // We subtract 60 here to keep a nice gap above the footer border.
+    const newBottom = distanceFromFooter + 60;
+
+    // Prevent the button from going below its normal position
+    whatsappBtn.style.bottom = `${Math.max(normalBottom, newBottom)}px`;
   } else {
-    // When footer is not visible, button stays at normal position
-    whatsappBtn.style.bottom = "40px";
+    // When footer not visible, keep it fixed near the bottom
+    whatsappBtn.style.bottom = `${normalBottom}px`;
   }
 });
+
 
 
 
