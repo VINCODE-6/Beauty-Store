@@ -77,7 +77,6 @@ h2{
 }
 
 .contact-btn img {
-  position: fixed;
   bottom: 40px;
   right: 20px;
   width: 50px;
@@ -104,12 +103,6 @@ h2{
     justify-content: center;
     transition: bottom 0.3s;
 }
-
-.contact-btn img {
-    width: 45px;
-    height: 45px;
-}
-
 
 .interested-button:hover{
 	background:pink;
@@ -156,6 +149,7 @@ h2{
 
 
   
+
 
 
 
