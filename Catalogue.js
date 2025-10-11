@@ -22,7 +22,7 @@
 window.addEventListener("scroll", function() {
   
   // Select the WhatsApp image inside the .contact-btn div
-  const whatsappBtn = document.querySelector(".contact-btn img");
+  const whatsappBtn = document.querySelector(".contact-btn");
   
   // Select the footer element (make sure footer has id="footer")
   const footer = document.getElementById("site-footer");
@@ -42,6 +42,7 @@ window.addEventListener("scroll", function() {
     whatsappBtn.style.bottom = "40px";
   }
 });
+
 
 
 
