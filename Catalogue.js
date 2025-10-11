@@ -36,12 +36,44 @@ window.addEventListener("scroll", function() {
   // If the footer is visible on the screen
   if (footerTop < windowHeight) {
     // Move the WhatsApp button upward (so it doesn’t overlap footer)
-    whatsappBtn.style.bottom = `${windowHeight - footerTop + 60}px`;
+    whatsappBtn.style.bottom = `${windowHeight - footerTop + 80}px`;
   } else {
     // Otherwise, keep it fixed in its normal bottom-right position
     whatsappBtn.style.bottom = "40px";
   }
 });
+
+// --- Prevent WhatsApp button from overlapping the footer ---
+
+window.addEventListener("scroll", function() {
+  // Select the WhatsApp image button
+  const whatsappBtn = document.querySelector(".contact-btn img");
+  
+  // Select the footer (must have id="footer" in HTML)
+  const footer = document.getElementById("footer");
+  
+  // Distance from top of the footer to the top of the visible screen
+  const footerTop = footer.getBoundingClientRect().top;
+  
+  // Height of the visible browser window
+  const windowHeight = window.innerHeight;
+
+  // If the footer is visible (starting to appear on screen)
+  if (footerTop < windowHeight) {
+    // Calculate how much of the footer is visible
+    const overlap = windowHeight - footerTop;
+    
+    // If overlap is small (footer just starting to appear)
+    // we move the button upward to stay just above the footer.
+    // Increase "+ 80" to create a bigger gap if you want.
+    whatsappBtn.style.bottom = `${overlap + 80}px`; 
+  } else {
+    // When footer is not visible, button stays at normal position
+    whatsappBtn.style.bottom = "40px";
+  }
+});
+
+
 
 
 
