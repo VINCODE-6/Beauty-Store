@@ -36,12 +36,13 @@ window.addEventListener("scroll", function() {
   // If the footer is visible on the screen
   if (footerTop < windowHeight) {
     // Move the WhatsApp button upward (so it doesn’t overlap footer)
-    whatsappBtn.style.bottom = `${windowHeight - footerTop + 20}px`;
+    whatsappBtn.style.bottom = `${windowHeight - footerTop + 60}px`;
   } else {
     // Otherwise, keep it fixed in its normal bottom-right position
     whatsappBtn.style.bottom = "40px";
   }
 });
+
 
 
 
