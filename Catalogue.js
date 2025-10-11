@@ -19,7 +19,7 @@
 
  // --- Prevent WhatsApp button from touching footer ---
 window.addEventListener("scroll", function() {
-  const whatsappBtn = document.querySelector(".contact-btn img"); // floating button
+  const whatsappBtn = document.querySelector(".contact-btn"); // floating button
   const footer = document.querySelector(".site-footer");          // footer section
   const footerRect = footer.getBoundingClientRect();              // get footer position
   const windowHeight = window.innerHeight;                        // visible screen height
@@ -41,6 +41,7 @@ window.addEventListener("scroll", function() {
     whatsappBtn.style.bottom = `${normalBottom}px`;
   }
 });
+
 
 
 
