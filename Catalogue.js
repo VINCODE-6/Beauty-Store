@@ -17,37 +17,31 @@
   });
 
 
- // --- Keep WhatsApp button floating above footer (footer uses class, not ID) ---
-
+ // --- Prevent WhatsApp button from touching footer ---
 window.addEventListener("scroll", function() {
-  // Select the WhatsApp image inside the contact button link
-  const whatsappBtn = document.querySelector(".contact-btn img");
-  
-  // Select the footer using its class
-  const footer = document.querySelector(".site-footer");
-  
-  // Get the distance from top of footer to top of viewport
-  const footerTop = footer.getBoundingClientRect().top;
-  
-  // Get height of visible browser window
-  const windowHeight = window.innerHeight;
-  
-  // Normal bottom position for floating button (in pixels)
-  const normalBottom = 40;
-  
-  // How close the footer is to the bottom of the screen
-  const distanceFromFooter = windowHeight - footerTop;
-  
-  // If the footer is visible
-  if (footerTop < windowHeight) {
-    // Raise button up by amount of footer visible + extra gap
-    const newBottom = distanceFromFooter + 60; // increase 60 for more space
-    whatsappBtn.style.bottom = `${Math.max(normalBottom, newBottom)}px`;
+  const whatsappBtn = document.querySelector(".contact-btn img"); // floating button
+  const footer = document.querySelector(".site-footer");          // footer section
+  const footerRect = footer.getBoundingClientRect();              // get footer position
+  const windowHeight = window.innerHeight;                        // visible screen height
+  const normalBottom = 40;                                        // default button height from bottom
+
+  // If footer is visible on screen
+  if (footerRect.top < windowHeight) {
+    // Calculate how much footer is visible
+    const overlap = windowHeight - footerRect.top;
+
+    // Move button up if overlap grows (footer entering view)
+    // Subtract overlap so it stays ABOVE footer, add +20 for small gap
+    const newBottom = normalBottom + overlap + 20;
+
+    // Apply new position (button rises smoothly)
+    whatsappBtn.style.bottom = `${newBottom}px`;
   } else {
-    // Otherwise keep button in normal position
+    // Footer not visible — button stays fixed bottom-right
     whatsappBtn.style.bottom = `${normalBottom}px`;
   }
 });
+
 
 
 
