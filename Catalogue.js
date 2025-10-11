@@ -32,7 +32,7 @@ window.addEventListener("scroll", function() {
 
     // Move button up if overlap grows (footer entering view)
     // Subtract overlap so it stays ABOVE footer, add +20 for small gap
-    const newBottom = normalBottom + overlap + 20;
+    const newBottom = normalBottom + overlap + 80;
 
     // Apply new position (button rises smoothly)
     whatsappBtn.style.bottom = `${newBottom}px`;
@@ -41,6 +41,7 @@ window.addEventListener("scroll", function() {
     whatsappBtn.style.bottom = `${normalBottom}px`;
   }
 });
+
 
 
 
