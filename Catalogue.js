@@ -22,7 +22,7 @@
 window.addEventListener("scroll", function() {
   
   // Select the WhatsApp image inside the .contact-btn div
-  const whatsappBtn = document.querySelector(".contact-btn");
+  const whatsappBtn = document.querySelector(".contact-btn img");
   
   // Select the footer element (make sure footer has id="footer")
   const footer = document.getElementById("site-footer");
@@ -50,7 +50,7 @@ window.addEventListener("scroll", function() {
   const whatsappBtn = document.querySelector(".contact-btn img");
   
   // Select the footer (must have id="footer" in HTML)
-  const footer = document.getElementById("footer");
+  const footer = document.getElementById("site-footer");
   
   // Distance from top of the footer to the top of the visible screen
   const footerTop = footer.getBoundingClientRect().top;
@@ -72,6 +72,7 @@ window.addEventListener("scroll", function() {
     whatsappBtn.style.bottom = "40px";
   }
 });
+
 
 
 
