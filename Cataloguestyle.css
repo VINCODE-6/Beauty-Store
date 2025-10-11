@@ -76,7 +76,7 @@ h2{
     justify-content:space-evenly;
 }
 
-/*.contact-btn {
+.contact-btn img {
   position: fixed;
   bottom: 40px;
   right: 20px;
@@ -87,7 +87,7 @@ h2{
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   z-index: 1000;
   transition: bottom 0.3s ease;
-}*/
+}
 
 .contact-btn {
     position: fixed;
@@ -156,6 +156,7 @@ h2{
 
 
   
+
 
 
 
