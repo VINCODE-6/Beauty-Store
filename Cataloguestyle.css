@@ -76,7 +76,7 @@ h2{
     justify-content:space-evenly;
 }
 
-.contact-btn img {
+.contact-btn {
   position: fixed;
   bottom: 40px;
   right: 20px;
@@ -87,6 +87,27 @@ h2{
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   z-index: 1000;
   transition: bottom 0.3s ease;
+}
+
+/*.contact-btn img {
+    position: fixed;
+    right: 30px;
+    bottom: 80px; // Adjust this value so the button stays above your footer 
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: bottom 0.3s;
+}*/
+
+.contact-btn img {
+    width: 45px;
+    height: 45px;
 }
 
 
@@ -135,6 +156,7 @@ h2{
 
 
   
+
 
 
 
