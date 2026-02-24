@@ -5,190 +5,266 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeaveCatalogue</title>
     <link rel="stylesheet" href="Cataloguestyle.css">
-    <script src="Catalogue.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 <body>
     <header id="main-header">
-            <h1>SANGO'S BEAUTY STORE</h1>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Sango's Beauty Store</h1>
+            </div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#weaves-section">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <a href="#" id="wishlist-link" title="View Wishlist">
+                            <i class="fas fa-heart"></i>
+                            <span id="wishlist-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="products-section">
-        <h2 class="section-header">WEAVES</h2>
-        <div class="product-grid">
-            <div class="weave-item">
-                <img src="images/weave1.jpeg" alt="Weave1">
-                <div class="price-row">
-                    <span class="price"> 16" R1200</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="weave-item">
-                <img src="images/weave2.jpeg" alt="Weave2">
-                <div class="price-row">
-                    <span class="price"> 25" R2000</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="weave-item">
-                <img src="images/weave3.jpeg" alt="Weave3">
-                <div class="price-row">
-                    <span class="price"> 16" R900</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="weave-item">
-                <img src="images/weave4.jpeg" alt="Weave4">
-               <div class="price-row">
-                    <span class="price"> 14" R600</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="weave-item">
-                <img src="images/weave5.jpeg" alt="Weave5">
-                <div class="price-row">
-                    <span class="price"> 20" R1600</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="weave-item">
-                <img src="images/weave6.jpeg" alt="Weave6">
-                <div class="price-row">
-                    <span class="price"> 28" R2400</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="weave-item">
-                <img src="images/weave7.jpeg" alt="Weave7">
-                <div class="price-row">
-                    <span class="price"> 8" R600</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="weave-item">
-                <img src="images/weave8.jpeg" alt="Weave8">
-                <div class="price-row">
-                    <span class="price"> 36" R3000</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="weave-item">
-                <img src="images/weave9.jpeg" alt="Weave8">
-                <div class="price-row">
-                    <span class="price"> 36" R3000</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="weave-item">
-                <img src="images/weave10.jpeg" alt="Weave8">
-                <div class="price-row">
-                    <span class="price"> 36" R3000</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="weave-item">
-                <img src="images/weave11.jpeg" alt="Weave8">
-                <div class="price-row">
-                    <span class="price"> 36" R3000</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="weave-item">
-                <img src="images/weave12.jpeg" alt="Weave8">
-                <div class="price-row">
-                    <span class="price"> 36" R3000</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-        </div>
+    <div class="demo-banner">
+    ⚠️ This is a demo site for illustration purposes only. Not a real business.
+</div>
 
-        <h2 class="section-header">PRODUCTS</h2>
+    <div id="wishlist-notification"></div>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Elevate Your Beauty</h1>
+            <p>Premium Weaves • Quality Accessories • Fast Delivery</p>
+            <a href="#products-section" class="hero-btn">Shop Now</a>
+        </div>
+    </div>
+
+    <div id="wishlist-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Your Wishlist</h2>
+                <span class="close" id="close-wishlist">&times;</span>
+            </div>
+            <div id="wishlist-items"></div>
+            <button id="enquire-btn">Enquire About These Items</button>
+        </div>
+    </div>
+
+    <div id="product-modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-img" id="modal-img">
+        <div id="modal-caption"></div>
+    </div>
+
+    <section id="products-section">
+        <section id="weaves-section">
+            <h2 class="section-header">WEAVES</h2>
+            <div class="product-grid">
+                <div class="weave-item">
+                    <img src="images/weave1.jpeg" alt="Weave1" onclick="openModal(this)">
+                    <div class="price-row">
+                        <span class="price">16" R1200</span>
+                        <button class="interested-button">Interested</button>
+                    </div>
+                </div>
+                <div class="weave-item">
+                    <img src="images/weave2.jpeg" alt="Weave2" onclick="openModal(this)">
+                    <div class="price-row">
+                        <span class="price">25" R2000</span>
+                        <button class="interested-button">Interested</button>
+                    </div>
+                </div>
+                <div class="weave-item">
+                    <img src="images/weave3.jpeg" alt="Weave3" onclick="openModal(this)">
+                    <div class="price-row">
+                        <span class="price">16" R900</span>
+                        <button class="interested-button">Interested</button>
+                    </div>
+                </div>
+                <div class="weave-item">
+                    <img src="images/weave4.jpeg" alt="Weave4" onclick="openModal(this)">
+                    <div class="price-row">
+                        <span class="price">14" R600</span>
+                        <button class="interested-button">Interested</button>
+                    </div>
+                </div>
+                <div class="weave-item">
+                    <img src="images/weave5.jpeg" alt="Weave5" onclick="openModal(this)">
+                    <div class="price-row">
+                        <span class="price">20" R1600</span>
+                        <button class="interested-button">Interested</button>
+                    </div>
+                </div>
+                <div class="weave-item">
+                    <img src="images/weave6.jpeg" alt="Weave6" onclick="openModal(this)">
+                    <div class="price-row">
+                        <span class="price">28" R2400</span>
+                        <button class="interested-button">Interested</button>
+                    </div>
+                </div>
+                <div class="weave-item">
+                    <img src="images/weave7.jpeg" alt="Weave7" onclick="openModal(this)">
+                    <div class="price-row">
+                        <span class="price">8" R600</span>
+                        <button class="interested-button">Interested</button>
+                    </div>
+                </div>
+                <div class="weave-item">
+                    <img src="images/weave8.jpeg" alt="Weave8" onclick="openModal(this)">
+                    <div class="price-row">
+                        <span class="price">36" R3000</span>
+                        <button class="interested-button">Interested</button>
+                    </div>
+                </div>
+                <div class="weave-item">
+                    <img src="images/weave9.jpeg" alt="Weave9" onclick="openModal(this)">
+                    <div class="price-row">
+                        <span class="price">36" R3000</span>
+                        <button class="interested-button">Interested</button>
+                    </div>
+                </div>
+                <div class="weave-item">
+                    <img src="images/weave10.jpeg" alt="Weave10" onclick="openModal(this)">
+                    <div class="price-row">
+                        <span class="price">36" R3000</span>
+                        <button class="interested-button">Interested</button>
+                    </div>
+                </div>
+                <div class="weave-item">
+                    <img src="images/weave11.jpeg" alt="Weave11" onclick="openModal(this)">
+                    <div class="price-row">
+                        <span class="price">36" R3000</span>
+                        <button class="interested-button">Interested</button>
+                    </div>
+                </div>
+                <div class="weave-item">
+                    <img src="images/weave12.jpeg" alt="Weave12" onclick="openModal(this)">
+                    <div class="price-row">
+                        <span class="price">36" R3000</span>
+                        <button class="interested-button">Interested</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <h2 class="section-header">Accessories</h2>
         <div class="product-grid">
             <div class="accessory-item">
-                <img src="images/hotcomb.jpeg" alt="hotcomb">
+                <img src="images/hotcomb.jpeg" alt="hotcomb" onclick="openModal(this)">
                 <div class="price-row">
                     <span class="price">R600</span>
                     <button class="interested-button">Interested</button>
                 </div>
             </div>
             <div class="accessory-item">
-                <img src="images/iphone1.jpeg" alt="iphone11">
+                <img src="images/iphone1.jpeg" alt="iphone11" onclick="openModal(this)">
                 <div class="price-row">
                     <span class="price">R800</span>
                     <button class="interested-button">Interested</button>
                 </div>
             </div>
             <div class="accessory-item">
-               <img src="images/iphone2.jpeg" alt="iphone">
-             <div class="price-row">
+                <img src="images/iphone2.jpeg" alt="iphone" onclick="openModal(this)">
+                <div class="price-row">
                     <span class="price">R150</span>
                     <button class="interested-button">Interested</button>
                 </div>
             </div>
             <div class="accessory-item">
-                <img src="images/spritzer.jpeg" alt="spritzer">
+                <img src="images/spritzer.jpeg" alt="spritzer" onclick="openModal(this)">
                 <div class="price-row">
                     <span class="price">R90</span>
                     <button class="interested-button">Interested</button>
                 </div>
             </div>
             <div class="accessory-item">
-                <img src="images/accessory.jpeg" alt="accessory">
+                <img src="images/accessory.jpeg" alt="accessory" onclick="openModal(this)">
                 <div class="price-row">
                     <span class="price">R500</span>
                     <button class="interested-button">Interested</button>
                 </div>
             </div>
             <div class="accessory-item">
-                <img src="images/afrocomb.jpeg" alt="afrocomb">
+                <img src="images/afrocomb.jpeg" alt="afrocomb" onclick="openModal(this)">
                 <div class="price-row">
                     <span class="price">R10</span>
                     <button class="interested-button">Interested</button>
                 </div>
             </div>
             <div class="accessory-item">
-                <img src="images/iphone3.jpeg" alt="iphone">
+                <img src="images/iphone3.jpeg" alt="iphone" onclick="openModal(this)">
                 <div class="price-row">
                     <span class="price">R6</span>
                     <button class="interested-button">Interested</button>
                 </div>
             </div>
             <div class="accessory-item">
-                <img src="images/weavebrush.jpeg" alt="weavebrush">
+                <img src="images/weavebrush.jpeg" alt="weavebrush" onclick="openModal(this)">
                 <div class="price-row">
                     <span class="price">R30</span>
                     <button class="interested-button">Interested</button>
                 </div>
             </div>
             <div class="accessory-item">
-                <img src="images/weavecomb.jpeg" alt="weavecomb">
+                <img src="images/weavecomb.jpeg" alt="weavecomb" onclick="openModal(this)">
                 <div class="price-row">
                     <span class="price">R30</span>
                     <button class="interested-button">Interested</button>
                 </div>
             </div>
         </div>
+    </section>
 
+    <section id="contact" class="contact-section">
+        <h2>Get in Touch</h2>
+        <p>Have questions about our weaves, accessories, or want to place a bulk order?<br>We're here to help!</p>
+        <div class="contact-info">
+            <div>
+                <strong>Phone / WhatsApp:</strong><br>
+                <a href="https://wa.me/0794642450" class="whatsapp-link">079 464 2450</a>
+            </div>
+            <div>
+                <strong>Operating Hours:</strong><br>
+                Monday – Saturday: 9:00 AM – 6:00 PM
+            </div>
+        </div>
+        <p><strong>Follow us for updates, new arrivals & promotions:</strong></p>
+    </section>
+
+    <section id="blog" class="blog-section">
+        <div class="blog-grid">
+            <div class="blog-card">
+                <h2>Latest Updates</h2>
+                <img src="images/blog1.jpeg" alt="New arrivals">
+                <div class="blog-content">
+                    <h3>New Weave Collection In Store</h3>
+                    <p>Check out our latest 30" and 36" straight bundles...</p>
+                    <small>Jan 15, 2026</small>
+                </div>
+            </div>
+        </div>
     </section>
 
     <a href="https://wa.me/27794642450" class="contact-btn" target="_blank">
-  <img src="images/whatsapplogo.jpeg" alt="WhatsApp" />
-</a>
-    
-<footer class="site-footer">
- <p>&copy; 2025 Sango's Beauty Store. Designed by Sango Masiza</p>
+        <img src="images/whatsapplogo.jpeg" alt="WhatsApp">
+    </a>
 
-    <div class="social-icons">
-    <a href="https://www.facebook.com/YourPage" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://wa.me/27831234567" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://www.instagram.com/YourPage" target="_blank"><i class="fab fa-instagram"></i></a>
-  </div>
-</footer>
+    <footer class="site-footer">
+        <p>&copy; 2025 Vincode. Sango's Beauty Store</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/YourPage" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/0794642450" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/YourPage" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
 
-<script src="Catalogue.js"></script>
+    <script src="Catalogue.js"></script>
 </body>
 </html>
+
 
 
 
