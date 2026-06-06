@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeaveCatalogue</title>
+    <title>Sango's Beauty Store | Weave Catalogue</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Cataloguestyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -15,10 +18,10 @@
             </div>
             <nav id="main-nav">
                 <ul>
-                    <li><a href="#weaves-section">Products</a></li>
+                    <li><a href="#products-section">Products</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li>
-                        <a href="#" id="wishlist-link" title="View Wishlist">
+                        <a href="#" id="wishlist-link" title="View Wishlist" aria-label="View Wishlist">
                             <i class="fas fa-heart"></i>
                             <span id="wishlist-count">0</span>
                         </a>
@@ -29,243 +32,394 @@
     </header>
 
     <div class="demo-banner">
-    ⚠️ This is a demo site for illustration purposes only. Not a real business.
-</div>
-
-    <div id="wishlist-notification"></div>
-
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Elevate Your Beauty</h1>
-            <p>Premium Weaves • Quality Accessories • Fast Delivery</p>
-            <a href="#products-section" class="hero-btn">Shop Now</a>
-        </div>
+        Demo website for illustration purposes only. Not a real business.
     </div>
+
+    <div id="wishlist-notification" aria-live="polite"></div>
+
+    <section class="hero">
+        <div class="hero-glow hero-glow-left"></div>
+        <div class="hero-glow hero-glow-right"></div>
+        <div class="hero-content reveal">
+            <span class="hero-kicker">Student-run beauty boutique</span>
+            <h1>Elevate Your Everyday Look</h1>
+            <p>Quality bundles, neat essentials, and easy WhatsApp ordering for beauty lovers who want value and style.</p>
+            <div class="hero-actions">
+                <a href="#products-section" class="hero-btn">Shop the Catalogue</a>
+            </div>
+            <div class="hero-highlights">
+                <span>Affordable pricing</span>
+                <span>Fast enquiries</span>
+                <span>New arrivals often</span>
+            </div>
+        </div>
+    </section>
 
     <div id="wishlist-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Your Wishlist</h2>
-                <span class="close" id="close-wishlist">&times;</span>
+                <button class="close" id="close-wishlist" type="button" aria-label="Close Wishlist">&times;</button>
             </div>
             <div id="wishlist-items"></div>
-            <button id="enquire-btn">Enquire About These Items</button>
+            <button id="enquire-btn" type="button">Enquire About These Items</button>
         </div>
     </div>
 
-    <div id="product-modal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-img" id="modal-img">
-        <div id="modal-caption"></div>
+    <div id="product-modal" class="modal image-modal">
+        <div class="image-modal-dialog">
+            <button class="close modal-close" type="button" aria-label="Close Product Image">&times;</button>
+            <img class="modal-img" id="modal-img" alt="Selected product image">
+            <div id="modal-caption"></div>
+        </div>
     </div>
 
     <section id="products-section">
-        <section id="weaves-section">
-            <h2 class="section-header">WEAVES</h2>
+        <div class="section-copy reveal">
+            <span class="section-kicker">Catalogue</span>
+            <h2 class="section-header">Bundles and Beauty Extras</h2>
+            <p>Browse our current weave options and simple styling must-haves. Everything is arranged to keep enquiries quick and easy.</p>
+        </div>
+
+        <section id="weaves-section" class="product-section">
+            <h2 class="section-header">Weaves</h2>
             <div class="product-grid">
-                <div class="weave-item">
-                    <img src="images/weave1.jpeg" alt="Weave1" onclick="openModal(this)">
-                    <div class="price-row">
-                        <span class="price">16" R1200</span>
-                        <button class="interested-button">Interested</button>
+                <div class="product-card weave-item reveal" data-badge="Best Seller">
+                    <div class="product-image-wrap">
+                        <img src="images/weave1.jpeg" alt="Classic Straight 16 inch bundle" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Classic Straight 16"</h3>
+                        <p class="product-note">Soft everyday length with a neat polished finish.</p>
+                        <div class="price-row">
+                            <span class="price">R1200</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
                     </div>
                 </div>
-                <div class="weave-item">
-                    <img src="images/weave2.jpeg" alt="Weave2" onclick="openModal(this)">
-                    <div class="price-row">
-                        <span class="price">25" R2000</span>
-                        <button class="interested-button">Interested</button>
+                <div class="product-card weave-item reveal" data-badge="Popular">
+                    <div class="product-image-wrap">
+                        <img src="images/weave2.jpeg" alt="Silky Straight 25 inch bundle" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Silky Straight 25"</h3>
+                        <p class="product-note">Longer length for a sleek statement look.</p>
+                        <div class="price-row">
+                            <span class="price">R2000</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
                     </div>
                 </div>
-                <div class="weave-item">
-                    <img src="images/weave3.jpeg" alt="Weave3" onclick="openModal(this)">
-                    <div class="price-row">
-                        <span class="price">16" R900</span>
-                        <button class="interested-button">Interested</button>
+                <div class="product-card weave-item reveal">
+                    <div class="product-image-wrap">
+                        <img src="images/weave3.jpeg" alt="Natural Straight 16 inch bundle" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Natural Straight 16"</h3>
+                        <p class="product-note">A budget-friendly choice for neat installs.</p>
+                        <div class="price-row">
+                            <span class="price">R900</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
                     </div>
                 </div>
-                <div class="weave-item">
-                    <img src="images/weave4.jpeg" alt="Weave4" onclick="openModal(this)">
-                    <div class="price-row">
-                        <span class="price">14" R600</span>
-                        <button class="interested-button">Interested</button>
+                <div class="product-card weave-item reveal">
+                    <div class="product-image-wrap">
+                        <img src="images/weave4.jpeg" alt="Short Bob 14 inch weave" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Short Bob 14"</h3>
+                        <p class="product-note">Simple, chic, and easy to maintain.</p>
+                        <div class="price-row">
+                            <span class="price">R600</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
                     </div>
                 </div>
-                <div class="weave-item">
-                    <img src="images/weave5.jpeg" alt="Weave5" onclick="openModal(this)">
-                    <div class="price-row">
-                        <span class="price">20" R1600</span>
-                        <button class="interested-button">Interested</button>
+                <div class="product-card weave-item reveal">
+                    <div class="product-image-wrap">
+                        <img src="images/weave5.jpeg" alt="Soft Wave 20 inch weave" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Soft Wave 20"</h3>
+                        <p class="product-note">Balanced length with movement and volume.</p>
+                        <div class="price-row">
+                            <span class="price">R1600</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
                     </div>
                 </div>
-                <div class="weave-item">
-                    <img src="images/weave6.jpeg" alt="Weave6" onclick="openModal(this)">
-                    <div class="price-row">
-                        <span class="price">28" R2400</span>
-                        <button class="interested-button">Interested</button>
+                <div class="product-card weave-item reveal" data-badge="New">
+                    <div class="product-image-wrap">
+                        <img src="images/weave6.jpeg" alt="Luxury Length 28 inch weave" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Luxury Length 28"</h3>
+                        <p class="product-note">A longer style for special occasions and glam days.</p>
+                        <div class="price-row">
+                            <span class="price">R2400</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
                     </div>
                 </div>
-                <div class="weave-item">
-                    <img src="images/weave7.jpeg" alt="Weave7" onclick="openModal(this)">
-                    <div class="price-row">
-                        <span class="price">8" R600</span>
-                        <button class="interested-button">Interested</button>
+                <div class="product-card weave-item reveal">
+                    <div class="product-image-wrap">
+                        <img src="images/weave7.jpeg" alt="Pixie Style 8 inch weave" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Pixie Style 8"</h3>
+                        <p class="product-note">Cute short option with a confident finish.</p>
+                        <div class="price-row">
+                            <span class="price">R600</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
                     </div>
                 </div>
-                <div class="weave-item">
-                    <img src="images/weave8.jpeg" alt="Weave8" onclick="openModal(this)">
-                    <div class="price-row">
-                        <span class="price">36" R3000</span>
-                        <button class="interested-button">Interested</button>
+                <div class="product-card weave-item reveal" data-badge="Popular">
+                    <div class="product-image-wrap">
+                        <img src="images/weave8.jpeg" alt="Extra Long 36 inch weave style one" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Extra Long 36" A</h3>
+                        <p class="product-note">For clients who love a dramatic full-length look.</p>
+                        <div class="price-row">
+                            <span class="price">R3000</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
                     </div>
                 </div>
-                <div class="weave-item">
-                    <img src="images/weave9.jpeg" alt="Weave9" onclick="openModal(this)">
-                    <div class="price-row">
-                        <span class="price">36" R3000</span>
-                        <button class="interested-button">Interested</button>
+                <div class="product-card weave-item reveal">
+                    <div class="product-image-wrap">
+                        <img src="images/weave9.jpeg" alt="Extra Long 36 inch weave style two" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Extra Long 36" B</h3>
+                        <p class="product-note">Smooth finish with extra flowing length.</p>
+                        <div class="price-row">
+                            <span class="price">R3000</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
                     </div>
                 </div>
-                <div class="weave-item">
-                    <img src="images/weave10.jpeg" alt="Weave10" onclick="openModal(this)">
-                    <div class="price-row">
-                        <span class="price">36" R3000</span>
-                        <button class="interested-button">Interested</button>
+                <div class="product-card weave-item reveal">
+                    <div class="product-image-wrap">
+                        <img src="images/weave10.jpeg" alt="Extra Long 36 inch weave style three" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Extra Long 36" C</h3>
+                        <p class="product-note">A sleek option for bold beauty shoots or events.</p>
+                        <div class="price-row">
+                            <span class="price">R3000</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
                     </div>
                 </div>
-                <div class="weave-item">
-                    <img src="images/weave11.jpeg" alt="Weave11" onclick="openModal(this)">
-                    <div class="price-row">
-                        <span class="price">36" R3000</span>
-                        <button class="interested-button">Interested</button>
+                <div class="product-card weave-item reveal">
+                    <div class="product-image-wrap">
+                        <img src="images/weave11.jpeg" alt="Extra Long 36 inch weave style four" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Extra Long 36" D</h3>
+                        <p class="product-note">High-impact length with a polished boutique feel.</p>
+                        <div class="price-row">
+                            <span class="price">R3000</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
                     </div>
                 </div>
-                <div class="weave-item">
-                    <img src="images/weave12.jpeg" alt="Weave12" onclick="openModal(this)">
-                    <div class="price-row">
-                        <span class="price">36" R3000</span>
-                        <button class="interested-button">Interested</button>
+                <div class="product-card weave-item reveal" data-badge="Best Seller">
+                    <div class="product-image-wrap">
+                        <img src="images/weave12.jpeg" alt="Extra Long 36 inch weave style five" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Extra Long 36" E</h3>
+                        <p class="product-note">One of our most eye-catching long-length picks.</p>
+                        <div class="price-row">
+                            <span class="price">R3000</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <h2 class="section-header">Accessories</h2>
-        <div class="product-grid">
-            <div class="accessory-item">
-                <img src="images/hotcomb.jpeg" alt="hotcomb" onclick="openModal(this)">
-                <div class="price-row">
-                    <span class="price">R600</span>
-                    <button class="interested-button">Interested</button>
+        <section class="product-section">
+            <h2 class="section-header">Accessories</h2>
+            <div class="product-grid">
+                <div class="product-card accessory-item reveal" data-badge="Popular">
+                    <div class="product-image-wrap">
+                        <img src="images/hotcomb.jpeg" alt="Electric hot comb" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Electric Hot Comb</h3>
+                        <p class="product-note">Perfect for neat finishing and smooth roots.</p>
+                        <div class="price-row">
+                            <span class="price">R600</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card accessory-item reveal">
+                    <div class="product-image-wrap">
+                        <img src="images/iphone1.jpeg" alt="Hair straightener tool" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Hair Straightener</h3>
+                        <p class="product-note">Reliable heat styling for silky finishing touches.</p>
+                        <div class="price-row">
+                            <span class="price">R800</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card accessory-item reveal">
+                    <div class="product-image-wrap">
+                        <img src="images/iphone2.jpeg" alt="Mini styling tool" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mini Styling Tool</h3>
+                        <p class="product-note">Useful for quick touch-ups and edges.</p>
+                        <div class="price-row">
+                            <span class="price">R150</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card accessory-item reveal">
+                    <div class="product-image-wrap">
+                        <img src="images/spritzer.jpeg" alt="Water spritzer bottle" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Water Spritzer</h3>
+                        <p class="product-note">Keep styling easy with a simple salon essential.</p>
+                        <div class="price-row">
+                            <span class="price">R90</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card accessory-item reveal" data-badge="New">
+                    <div class="product-image-wrap">
+                        <img src="images/accessory.jpeg" alt="Premium beauty accessory set" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Beauty Accessory Set</h3>
+                        <p class="product-note">A practical add-on for clients building their kit.</p>
+                        <div class="price-row">
+                            <span class="price">R500</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card accessory-item reveal">
+                    <div class="product-image-wrap">
+                        <img src="images/afrocomb.jpeg" alt="Afro comb" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Afro Comb</h3>
+                        <p class="product-note">Simple, affordable, and always useful.</p>
+                        <div class="price-row">
+                            <span class="price">R10</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card accessory-item reveal">
+                    <div class="product-image-wrap">
+                        <img src="images/iphone3.jpeg" alt="Small beauty accessory" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Small Beauty Accessory</h3>
+                        <p class="product-note">A low-cost extra for finishing or maintenance.</p>
+                        <div class="price-row">
+                            <span class="price">R6</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card accessory-item reveal">
+                    <div class="product-image-wrap">
+                        <img src="images/weavebrush.jpeg" alt="Weave brush" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Weave Brush</h3>
+                        <p class="product-note">Helps maintain smoothness and shine.</p>
+                        <div class="price-row">
+                            <span class="price">R30</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card accessory-item reveal">
+                    <div class="product-image-wrap">
+                        <img src="images/weavecomb.jpeg" alt="Weave comb" onclick="openModal(this)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Weave Comb</h3>
+                        <p class="product-note">A tidy everyday comb for styling and separation.</p>
+                        <div class="price-row">
+                            <span class="price">R30</span>
+                            <button class="interested-button" type="button">Interested</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="accessory-item">
-                <img src="images/iphone1.jpeg" alt="iphone11" onclick="openModal(this)">
-                <div class="price-row">
-                    <span class="price">R800</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="accessory-item">
-                <img src="images/iphone2.jpeg" alt="iphone" onclick="openModal(this)">
-                <div class="price-row">
-                    <span class="price">R150</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="accessory-item">
-                <img src="images/spritzer.jpeg" alt="spritzer" onclick="openModal(this)">
-                <div class="price-row">
-                    <span class="price">R90</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="accessory-item">
-                <img src="images/accessory.jpeg" alt="accessory" onclick="openModal(this)">
-                <div class="price-row">
-                    <span class="price">R500</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="accessory-item">
-                <img src="images/afrocomb.jpeg" alt="afrocomb" onclick="openModal(this)">
-                <div class="price-row">
-                    <span class="price">R10</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="accessory-item">
-                <img src="images/iphone3.jpeg" alt="iphone" onclick="openModal(this)">
-                <div class="price-row">
-                    <span class="price">R6</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="accessory-item">
-                <img src="images/weavebrush.jpeg" alt="weavebrush" onclick="openModal(this)">
-                <div class="price-row">
-                    <span class="price">R30</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-            <div class="accessory-item">
-                <img src="images/weavecomb.jpeg" alt="weavecomb" onclick="openModal(this)">
-                <div class="price-row">
-                    <span class="price">R30</span>
-                    <button class="interested-button">Interested</button>
-                </div>
-            </div>
-        </div>
+        </section>
     </section>
 
-    <section id="contact" class="contact-section">
-        <h2>Get in Touch</h2>
-        <p>Have questions about our weaves, accessories, or want to place a bulk order?<br>We're here to help!</p>
-        <div class="contact-info">
-            <div>
-                <strong>Phone / WhatsApp:</strong><br>
-                <a href="https://wa.me/0794642450" class="whatsapp-link">079 464 2450</a>
+    <section id="contact" class="contact-section reveal">
+        <div class="contact-shell">
+            <div class="section-copy centered">
+                <span class="section-kicker">Contact</span>
+                <h2 class="section-header">Let's help you choose the right look</h2>
+                <p>Have questions about bundles, accessories, or a bigger order? Reach out and we will guide you through the options.</p>
             </div>
-            <div>
-                <strong>Operating Hours:</strong><br>
-                Monday – Saturday: 9:00 AM – 6:00 PM
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Quick details</h3>
+                    <p><strong>Phone / WhatsApp</strong><br><a href="https://wa.me/27794642450" class="whatsapp-link">079 464 2450</a></p>
+                    <p><strong>Operating hours</strong><br>Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                </div>
+                <div class="contact-card contact-card-accent">
+                    <h3>Order with confidence</h3>
+                    <p>Send the items you are interested in, ask about stock, or request help picking a style that fits your budget.</p>
+                    <a href="https://wa.me/27794642450" class="whatsapp-cta" target="_blank">Chat on WhatsApp</a>
+                </div>
             </div>
         </div>
-        <p><strong>Follow us for updates, new arrivals & promotions:</strong></p>
     </section>
 
     <section id="blog" class="blog-section">
         <div class="blog-grid">
-            <div class="blog-card">
+            <div class="blog-card reveal">
                 <h2>Latest Updates</h2>
                 <img src="images/blog1.jpeg" alt="New arrivals">
                 <div class="blog-content">
                     <h3>New Weave Collection In Store</h3>
-                    <p>Check out our latest 30" and 36" straight bundles...</p>
+                    <p>Fresh longer-length bundles are now available for clients who want a smooth finish with extra movement.</p>
                     <small>Jan 15, 2026</small>
                 </div>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/27794642450" class="contact-btn" target="_blank">
+    <a href="https://wa.me/27794642450" class="contact-btn" target="_blank" aria-label="Chat on WhatsApp">
         <img src="images/whatsapplogo.jpeg" alt="WhatsApp">
     </a>
 
     <footer class="site-footer">
-        <p>&copy; 2025 Vincode. Sango's Beauty Store</p>
+        <p>&copy; 2026 Sango's Beauty Store</p>
         <div class="social-icons">
-            <a href="https://www.facebook.com/YourPage" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://wa.me/0794642450" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.instagram.com/YourPage" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/YourPage" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/27794642450" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/YourPage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
 
     <script src="Catalogue.js"></script>
 </body>
 </html>
-
-
 
 
 
