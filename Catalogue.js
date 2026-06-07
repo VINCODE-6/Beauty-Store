@@ -1,4 +1,4 @@
-const whatsappNumber = "27794642450";
+const whatsappNumber = "27812120502";
 const whatsappBase = `https://wa.me/${whatsappNumber}`;
 
 const wishlist = [];
